@@ -1,18 +1,19 @@
 <?php 
 
-class DataBaseConnexion {
-    public function connexion(){
-            $servername = 'localhost';
-            $username = 'root';
-            $password = 'root';
-            
-            //On établit la connexion
-            $conn = mysqli_connect($servername, $username, $password);
-            
-            //On vérifie la connexion
-            if(!$conn){
-                die('Erreur : ' .mysqli_connect_error());
-            }
-            echo 'Connexion réussie';
-    }
+
+
+function connect(){
+    global $connexion;
+    $servername = 'localhost';
+    $username = 'root';
+    $password = 'root';
+    $database = 'library';
+    
+    //On établit la connexion
+    //$conn = mysqli_connect($servername, $username, $password);
+
+    //mysqli_select_db("",'library');
+
+
+    $connexion = new PDO( "mysql:host={$servername};dbname=".$database,$username,$password);
 }
